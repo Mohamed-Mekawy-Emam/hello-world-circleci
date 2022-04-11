@@ -21,6 +21,24 @@ jobs:
           name: "echo an env var that is part of our project"
           command: |
             echo $MY_ENV_VAR
+  save_hello_world_output:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo "hello world" > ~/output.txt
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - output.txt
+
+  print_output_file:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: cat ~/output.txt
+
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -33,3 +51,9 @@ workflows:
   test-env-vars:
     jobs:
       - build
+  my_workflow:
+    jobs:
+      - save_hello_world_output
+      - print_output_file:
+          requires:
+            - save_hello_world_output
