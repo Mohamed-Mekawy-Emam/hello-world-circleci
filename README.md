@@ -9,12 +9,13 @@ To use the AWS CLI in your jobs you'll need to the following environment variabl
 
 If not already, create an AWS IAM user with programmatic access, and it will generate these credentials.
 
-AWS_ACCESS_KEY_ID
-AWS_DEFAULT_REGION
-AWS_SECRET_ACCESS_KEY
-Note - While saving the environment variables in the Circle CI project settings, use capital case
+1. AWS_ACCESS_KEY_ID
+2. AWS_DEFAULT_REGION
+3. AWS_SECRET_ACCESS_KEY
 
-reference: Setting an environment variable in a project. Do read about the various types of environment variables and their relative priorities.
+* Note - While saving the environment variables in the Circle CI project settings, use capital case
+
+* reference: Setting an environment variable in a project. Do read about the various types of environment variables and their relative priorities.
 
 https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project
 
