@@ -61,3 +61,4 @@ workflows:
   my_workflow:
     jobs:
       - create_infrastructure
+      - print_greetings
